@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Blocking URL</title>
+    <style>
+        html
+        {
+           margin: 0px;
+           height: 100%;
+           width: 100%;
+        }
+        body
+        {
+            text-align: center;
+            position: relative;
+            font-family: "Copperplate Gothic Bold", "Helvetica Neue", Arial, sans-serif !important;
+        }
+        h1
+        {
+            color: black;
+            font-family: "Copperplate Gothic Light";
+        }
+        form
+        {
+            font-family: "Times New Roman";
+        }
+        .btn
+        {
+            border: 2px solid transparent;
+            background: cornflowerblue;
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 5px;
+            padding: 10px 0;
+            border-radius: 3px;
+            transition: 0.25s;
+            width:100px;
+        }
+    </style>
+</head>
+<body style="background-color: ivory ">
+ {% include 'includes/_navbar.html' %}
+<center>
+    <div style="position: relative;top: 75px; ">
+    <h1>Blocking IP Address</h1>
+    <form method="POST">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flash>
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {{ip.csrf_token}}
+    {{ip.ipaddress(placeholder='IP Address')}}
+        <br>
+            {% for error in ip.ipaddress.errors %}
+            {{ error }}<br>
+            {% endfor %}
+
+        <br>
+        <input type="submit" value="Submit" class="btn">
+    </form>
+    </div>
+</center>
+</body>
+</html>

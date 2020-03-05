@@ -1,0 +1,11 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm" style="background-color: ivory; font-family: 'Copperplate Gothic Bold'">
+    <img src="https://vms.kaust.edu.sa/cdn/alba/img/kaust-logo.svg" />
+    <h5 class="my-0 mr-md-auto font-weight-normal">KAUST</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+          {% if not session.home %}
+            <a class="p-2 text-dark" href="/1" style="font-family: Arial;">Home</a>
+          {% endif %}
+      </nav>
+      <a class="btn btn-outline-primary" href={{url_for('logout')}} style="font-family: Arial">Logout</a>
+    </div>
+

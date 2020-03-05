@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation</title>
+</head>
+<body>
+<center>
+     {% include 'includes/_navbar.html' %}
+    <form id="form" data-ajax="false" action={{url_for('options')}}>
+    <div style="position: relative;top: 75px;">
+        <p>The MAC address to be Unblocked is: {{ session['mac'] }}<br>
+        <p>Are you sure <br>
+                <br><input type="submit" value="Submit">
+
+    </div>
+    </form>
+</center>
+</body>
+</html>

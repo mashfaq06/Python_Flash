@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Options</title>
+    <style type="text/css">
+        a{
+            text-decoration: none;
+            font-family: "Times New Roman";
+        }
+        a:hover{color: maroon}
+        h1
+        {
+            font-family: "Times New Roman";
+        }
+    </style>
+</head>
+<body>
+<center>
+    {% include 'includes/_navbar.html' %}
+    <div style="position: relative;top: 75px;">
+        <form>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class=alert type="alert-warning">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        </form>
+    <h1>Select Option</h1>
+    <div >
+        <a href="/block" style="cursor: pointer"> 1. Block</a> <br><br>
+        <a href="/unblock" style="cursor: pointer"> 2. Unblock</a> <br><br>
+    </div>
+    </div><br>
+   </center>
+</body>
+</html>

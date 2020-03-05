@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style type="text/css">
+        a{
+            text-decoration: none;
+            font-family: "Times New Roman";
+        }
+        a:hover {color: maroon}
+        h1{
+            font-family: "Copperplate Gothic Light";
+        }
+    </style>
+</head>
+<body>
+<center>
+    <form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=alert type="alert-warning">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    </form>
+    <div style="position: relative;top: 100px;" >
+    <h1>Select Option</h1>
+
+        <a href="/1"> 1. Return Back home</a> <br><br>
+        <a href="/logout"> 2. Quit</a> <br><br>
+    </div>
+</center>
+</body>
+</html>

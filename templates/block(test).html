@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Blocking URL</title>
+
+</head>
+<body>
+<center>
+<h1>Blocking URL</h1>
+<div data-role="content">
+ <form id="form" data-ajax="false" action={{url_for('reroute')}}>
+     <div data-role="fieldcontain">
+                <label for="ip">Enter the IP Address to be blocked</label><br><br>
+                <input name="ip" id="ip" type="text"  required pattern="^(10).((25[0-5]|2[0-4][0-9])\.)((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.)(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" value="10.2">
+     </div><br>
+     <div style="text-align:center;">
+                <input type="submit" value="Submit" />
+     </div>
+ </form>
+</center>
+</body>
+</html>

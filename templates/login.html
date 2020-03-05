@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style type="text/css">
+        html
+        {
+           margin: 0px;
+           height: 100%;
+           width: 100%;
+        }
+        body
+        {
+            text-align: center;
+            position: relative;
+            top: 125px;
+            background-image: url("https://globalhighered.files.wordpress.com/2009/10/kausttiles.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif !important;
+        }
+
+        .col-md-6
+        {
+            margin: 20px auto;
+            width: 500px;
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: "Copperplate Gothic Bold", "Helvetica Neue";
+        }
+        .btn
+        {
+            border: 2px solid transparent;
+            background: cornflowerblue;
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 15px;
+            padding: 10px 0;
+            border-radius: 3px;
+            transition: 0.25s;
+            width:175px;
+        }
+        .text-muted
+        {
+            color: darkgray;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card m-0">
+                    <div class="card-block text-center">
+                        <div class="login-card-container">
+                            <img src="https://vms.kaust.edu.sa/cdn/alba/img/kaust-logo.svg" />
+                            <h1>Login</h1>
+                        </div>
+                        <span class="text-muted">Sign In using your KAUST account</span><br>
+                        <br><form method="POST">
+                            {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                    <ul class=flash style="color: red; background-color: darksalmon;border-radius: 5px;text-align: center">
+                                    {% for message in messages %}
+                                        <strong>{{ message }}</strong>
+                                    {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            {% endwith %}
+
+                            {{form.csrf_token}}
+                            {{form.username(placeholder='Username')}}
+                            <ul>
+                                    {% for error in form.username.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+
+                                </ul>
+                            {{form.password(placeholder='Password')}}<br>
+                            <ul>
+                                    {% for error in form.password.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+
+                                </ul>
+                            <button type="submit" name="Submit" class="btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</center>
+</body>
+</html>

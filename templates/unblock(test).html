@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Unblocking</title>
+    <style>
+        html
+        {
+           margin: 0px;
+           height: 100%;
+           width: 100%;
+        }
+        body
+        {
+            text-align: center;
+            position: relative;
+            font-family: "Copperplate Gothic Bold", "Helvetica Neue", Arial, sans-serif !important;
+        }
+        h1
+        {
+            color: lightgray;
+            font-family: "Copperplate Gothic Bold", "Helvetica Neue", Arial, sans-serif !important;
+        }
+        form
+        {
+            font-family: "Copperplate Gothic Bold", "Helvetica Neue", Arial, sans-serif !important;
+        }
+        .btn
+        {
+            border: 2px solid transparent;
+            background: cornflowerblue;
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 5px;
+            padding: 10px 0;
+            border-radius: 3px;
+            transition: 0.25s;
+            width:120px;
+        }
+    </style>
+    <script type="text/javascript">
+
+      function reverseNumber(input) {
+       return [].map.call(input, function(x) {
+          return x;
+        }).reverse().join('');
+      }
+
+      function plainNumber(number) {
+         return number.split('.').join('');
+      }
+
+      function splitInDots(input) {
+
+          var value = input.value,
+              plain = plainNumber(value),
+              reversed = reverseNumber(plain),
+              reversedWithDots = reversed.match(/.{1,4}/g).join('.'),
+              normal = reverseNumber(reversedWithDots);
+
+          console.log(plain, reversed, reversedWithDots, normal);
+          input.value = normal;
+      }
+     </script>
+</head>
+<body style="background= 'background.jpeg'">
+ {% include 'includes/_navbar.html' %}
+<center>
+    <div data-role="content" style="position: relative;top: 100px;">
+    <h1>Unblocking URL</h1>
+
+     {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=alert type="alert-warning">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+     <div data-role="fieldcontain">
+                <label for="mac" style="color: white">Enter the MAC Address to be Unblocked</label><br><br>
+                <input name="mac" id="mac" type="text" onkeyup="splitInDots(this)" maxlength="14" pattern required="\w{4}.\w{4}.\w{4}" placeholder="MAC Address"><br>
+     </div><br>
+     <div style="text-align:center;">
+                <input type="submit" value="Submit button" onclick="myFunction()" class="btn" />
+     </div>
+
+
+    <script>
+        function myFunction()
+        {
+            var txt;
+            var r = confirm("Press a button!");
+            if (r == true)
+            {
+                window.location.href="http://127.0.0.1:5000/1"
+            }
+            else
+            {
+                txt="You Pressed Cancel"
+            }
+    document.getElementById("demo").innerHTML = txt;
+        }
+    </script>
+
+     </div>
+</center>
+</body>
+</html>

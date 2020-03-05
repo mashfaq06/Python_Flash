@@ -1,0 +1,3 @@
+[console_scripts]
+flask-ldap-login-check = flask_ldap_login.check:main
+
